@@ -7,5 +7,5 @@ def main(cnx):
     
 
 if __name__=="__main__":
-    mysql = MysqlConnection.MysqlConnection("127.0.0.1", "33061", "perpus" , "root", "131028")
+    mysql = MysqlConnection.MysqlConnection("localhost", "3306", "perpus" , "root", "")
     main(mysql)

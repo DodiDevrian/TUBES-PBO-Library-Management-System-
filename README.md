@@ -1,6 +1,6 @@
 # TUBES-PBO-Library-Management-System-
 
-Ayu Feblira Gersy
+Ayu Feblira Gersy \n
 Cahya Putri Antika
 Dodi Devrian Andrianto
 

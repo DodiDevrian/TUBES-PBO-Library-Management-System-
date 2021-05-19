@@ -1,4 +1,3 @@
-# interface
 class Connection:
     def getConnection(self):
         pass

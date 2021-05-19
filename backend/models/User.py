@@ -39,7 +39,6 @@ class User(Model.Model):
         else:
             print("========= Failed to get data admin =========")
 
-    # overriding
     @dispatch(str)
     def get(self, id):
         query = "SELECT * FROM users where id=%s"

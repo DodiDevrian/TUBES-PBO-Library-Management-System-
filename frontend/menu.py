@@ -9,7 +9,6 @@ import getpass
 def main_menu(cnx):
     login.insertUsernamePassword(cnx)
     
-# menu ketika gagal login
 def auth_failed(cnx):
     print("1. Try Again")
     print("2. Exit")
@@ -19,9 +18,7 @@ def auth_failed(cnx):
     elif pil == "2":
         return
 
-# dataAuth keys{"id", "username"}
 def menu_admin(cnx, dataAuth):
-    # print("Halo "+dataAuth['username'])
     print("1. List Admin (Tambah, Hapus, Ubah, Cari)")
     print("2. List Anggota (Tambah, Hapus, Ubah, Cari)")
     print("3. List Buku (Tambah, Hapus, Ubah, Cari)")
@@ -47,10 +44,8 @@ def menu_admin(cnx, dataAuth):
     menu_admin(cnx, dataAuth)
 
 def menu_admin_admin(cnx):
-    # TO DO LOAD DATA ADMIN
     datas = admin.getAll(cnx)
     print("======== LIST Admin ========")
-    # TO DO print data admin
     print("----------------------------------------------------")
     print("ID\t\tusername")
     print("----------------------------------------------------")
@@ -67,22 +62,18 @@ def menu_admin_admin(cnx):
         print("======= TAMBAH ADMIN BARU =======")
         username = input("username: ")
         password = getpass.getpass("password: ")
-        # add to database users
         admin.create(cnx, username, password)
 
     elif pil == "2":
         adminID = input("Masukkan id admin: ")
         username = input("username: ")
         password = getpass.getpass("password: ")
-        # update db
         admin.update(cnx, adminID, username, password)
     elif pil == "3":
         adminID = input("Masukkan id admin: ")
-        # TO DO check db ada data atau tidak, jika ada hapus
         admin.delete(cnx, adminID)
     elif pil == "4":
         searchValue = input("Masukkan keyword: ")
-        # TO DO search di db lalu tampilkan
         users = admin.search(cnx, searchValue)
         print("=========== SEARCH DATA ADMIN =================")
         print("----------------------------------------------------")
@@ -98,11 +89,9 @@ def menu_admin_admin(cnx):
         menu_admin_admin(cnx)
 
 def menu_admin_anggota(cnx):
-    # TO DO LOAD DATA ADMIN
     datas = member.getAll(cnx)
     print("======== LIST anggota ========")
     print("ID\t\tName")
-    # TO DO print data anggota
     for v in datas:
         print(str(v['id']) + "\t\t" + v['name'])
    
@@ -123,11 +112,9 @@ def menu_admin_anggota(cnx):
         member.update(cnx, memberID, name)
     elif pil == "3":
         memberID = input("Masukkan id anggota: ")
-        # TO DO check db ada data atau tidak, jika ada hapus
         member.delete(cnx, memberID)
     elif pil == "4":
         searchValue = input("Masukkan keyword: ")
-        # TO DO search di db lalu tampilkan
         members = member.search(cnx, searchValue)
         print("=========== SEARCH DATA MEMBER =================")
         print("----------------------------------------------------")
@@ -145,7 +132,6 @@ def menu_admin_anggota(cnx):
 def menu_admin_buku(cnx):
     datas = book.getAll(cnx)
     print("======== LIST buku ========")
-    # TO DO print data buku
     for v in datas:
             print(str(v['id']) + "\t\t" + v['name'])
     print("")
@@ -162,20 +148,15 @@ def menu_admin_buku(cnx):
 
     elif pil == "2":
         bookID = input("Masukkan id Buku: ")
-        # TO DO check db ada data atau tidak
         name = input("Masukkan nama: ")
         book.update(cnx, bookID, name)
-        # TO DO update db
     elif pil == "3":
         bookID = input("Masukkan id buku: ")
-        # TO DO check db ada data atau tidak, jika ada hapus
         book.delete(cnx, bookID)
     elif pil == "4":
         searchValue = input("Masukkan keyword: ")
         datas = book.search(cnx, searchValue)
-        # TO DO search di db lalu tampilkan
         print("======== LIST buku ========")
-        # TO DO print data buku
         for v in datas:
             print(str(v['id']) + "\t\t" + v['name'])
 
@@ -200,6 +181,5 @@ def menu_admin_pengembalian(cnx):
     for v in datas:
             print(str(v['id']) + "\t\t" + str(v['member_id']) + "\t\t\t" + str(v['book_id']))
     peminjamanID = input("Masukkan ID peminjaman: ")
-    # to do hitung denda dan hapus dari table peminjaman
     data = peminjaman.pengembalian(cnx, peminjamanID)
    

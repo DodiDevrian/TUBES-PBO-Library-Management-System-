@@ -1,6 +1,6 @@
 from backend.models import User
 def login(cnx, username, password):
-    # TO DO check username dan password ke database
+    
     user = User.User(cnx)
     auth = user.get(username, password)
     if auth:

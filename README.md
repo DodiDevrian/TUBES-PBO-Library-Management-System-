@@ -2,7 +2,7 @@
 
 Member :
 
-Ayu Feblira Gersy       (119140023)
+Ayu Feblira Gersy       (119140102)
 
 Cahya Putri Antika      (119140084)
 
